@@ -1,0 +1,41 @@
+// Breakpoints in em units
+$breakpoints-up: (
+  'small': 43.75em,   // 700px and up
+  'medium': 56.25em,  // 900px and up
+  'large': 90em,      // 1440px and up
+);
+
+// Breakpoints in em units, calculated slightly below for precision
+$breakpoints-down: (
+  'small': 43.7485em,   // 699.98px and below
+  'medium': 56.24875em, // 899.98px and below
+  'large': 89.99875px,  // 1239.98px and below
+);
+
+// Mixin for min-width media query
+@mixin breakpoint-up($size) {
+  $breakpoint: map-get($breakpoints-up, $size);
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Mixin for max-width media query
+@mixin breakpoint-down($size) {
+  $breakpoint: map-get($breakpoints-down, $size);
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+// _responsive.scss
+
+// Breakpoint in px units
+$mobile-breakpoint: 426px;
+
+// Mixin for max-width media query
+@mixin mobile-only {
+  @media (max-width: $mobile-breakpoint) {
+    @content;
+  }
+}

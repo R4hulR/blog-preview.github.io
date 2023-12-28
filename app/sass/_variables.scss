@@ -1,0 +1,19 @@
+// Colors
+$yellow: hsl(47, 88%, 63%);
+
+// Neutral Colors
+$white: hsl(0, 0%, 100%);
+$grey: hsl(0, 0%, 50%);
+$black: hsl(0, 0%, 7%);
+//font-family
+$figtree-font-family: 'Figtree', sans-serif;
+
+@function to-rem($value,$base-size:16px){
+    @if (unit($value) == px){
+        @return $value / $base-size +rem;
+    }
+    @else{
+        @warn "Please Provide a pixel value for conversion";
+        @return $value;
+    }
+}
